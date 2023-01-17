@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+
+
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -31,7 +33,6 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
-                // ->namespace('App\Http\Controllers\Admin')
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
