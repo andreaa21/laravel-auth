@@ -19,12 +19,12 @@ class ProjectsTableSeeder extends Seeder
     {
         for ($i = 0; $i < 10; $i++) {
             $new_project = new Project();
-            $new_project->title = $faker->word();
+            $new_project->name = $faker->word();
             $new_project->slug = Project::generateSlug($new_project->title);
             $new_project->client_name = $faker->name();
             $new_project->summary = $faker->text();
             $new_project->cover_image = 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1';
-            dump($new_project);
+            $new_project->save();
         }
     }
 }
