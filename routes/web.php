@@ -18,10 +18,6 @@ use App\Http\Controllers\Guest\PageController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
