@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('client_name');
             $table->text('summary');
             $table->string('cover_image');
-
             $table->timestamps();
         });
     }
