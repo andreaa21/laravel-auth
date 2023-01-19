@@ -3,12 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
-use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
-
-class ProjectsTableSeeder extends Seeder
+class ProjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
