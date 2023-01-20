@@ -4,7 +4,7 @@
     <div class="container">
         <h5 class="my-3">CREA UN NUOVO PROGETTO</h5>
 
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome Progetto</label>
@@ -18,7 +18,7 @@
             </div>
             <div class="mb-3">
                 <label for="cover_image" class="form-label">immagine</label>
-                <input type="text" class="form-control" id="cover_umage" name="cover_image"
+                <input type="file" class="form-control" id="cover_umage" name="cover_image"
                     value="{{ old('cover_image') }}" placeholder="url immagine">
             </div>
             <div class="mb-3">

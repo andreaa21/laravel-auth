@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 
-class ProjectSeeder extends Seeder
+class ProjectsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,7 +22,6 @@ class ProjectSeeder extends Seeder
             $new_project->slug = Project::generateSlug($new_project->title);
             $new_project->client_name = $faker->name();
             $new_project->summary = $faker->text();
-            $new_project->cover_image = 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1';
             $new_project->save();
         }
     }
