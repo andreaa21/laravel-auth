@@ -30,6 +30,15 @@
                                         title="show"><i class="fa-regular fa-eye"></i></a>
                                     <a class="btn btn-warning mx-1" href="{{ route('admin.projects.edit', $project) }}"
                                         title="edit"><i class="fa-solid fa-pencil"></i></a>
+                                    <form onsubmit="return confirm('Vuoi davvero eliminare {{ $project['name'] }}?')"
+                                        class="d-inline" action=" {{ route('admin.projects.destroy', $project) }} "
+                                        method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
