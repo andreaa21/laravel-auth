@@ -4,14 +4,15 @@
     <div class="container">
         <h5 class="my-3">MODIFICA IL PROGETTO {{ $project->id }} - {{ $project->name }}</h5>
 
-        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST"
+            enctype="multipart/form-data>
             @csrf
             @method('PUT')
             <div class="mb-3">
-                <label for="name" class="form-label">Nome Progetto</label>
-                <input type="text" class="form-control" id="name" name="name"
-                    value="{{ old('name', $project->name) }}" placeholder="Nome Progetto">
-            </div>
+            <label for="name" class="form-label">Nome Progetto</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $project->name) }}"
+                placeholder="Nome Progetto">
+
             <div class="mb-3">
                 <label for="client_name" class="form-label">Nome Cliente</label>
                 <input type="text" class="form-control" id="client_name" name="client_name"
@@ -19,8 +20,8 @@
             </div>
             <div class="mb-3">
                 <label for="cover_image" class="form-label">immagine</label>
-                <input type="text" class="form-control" id="cover_umage" name="cover_image"
-                    value="{{ old('cover_image', $project->cover_image) }}" placeholder="url immagine">
+                <input type="file" class="form-control" id="cover_umage" name="cover_image"
+                    value="{{ old('cover_image', $project->cover_image) }}" placeholder="immagine">
             </div>
             <div class="mb-3">
                 <label for="summary" class="form-label">Descrizione</label>

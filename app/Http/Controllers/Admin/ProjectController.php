@@ -91,10 +91,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $form_project = $request->all();
+        $project_data = $request->all();
 
-        $project->update($form_project);
-        return redirect()->route('admin.projects.index');
+        if (array_key_exists('cover_image', $project_data)) {
+
+            if ($project->cover_image) {
+                Storage::disk('public')->delete($project->cover_image);
+            }
+            $project_data['cover_image_original_name'] = $request->file('cover_image')->getClientOriginalName();
+            $project_data['cover_image'] = Storage::put('uploads', $project_data['cover_image']);
+        }
+
+        $project->update($project_data);
+        return redirect()->route('admin.projects.show');
     }
 
     /**
@@ -106,6 +115,10 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
+
+        if ($project->cover_image) {
+            Storage::disk('public')->delete($project->cover_image);
+        }
 
         return redirect()->route('admin.projects.index');
     }
