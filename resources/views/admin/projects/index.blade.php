@@ -35,7 +35,7 @@
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-danger mx-1">
                                             <i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>
@@ -46,5 +46,6 @@
                 </table>
             </div>
         </div>
+        {{ $projects->links() }}
     </div>
 @endsection
