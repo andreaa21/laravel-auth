@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
+
 class ProjectController extends Controller
 {
     /**
@@ -38,7 +39,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project_data = $request->all();
+        // dd($project_data);
+        $project_data['slug'] = Project::generateSlug($project_data['name']);
+
+        $new_project = new Project();
+        $new_project->fill($project_data);
+        $new_project->save();
+
+        return redirect()->route('admin.projects.show', $new_project);
     }
 
     /**
@@ -73,7 +82,10 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $form_project = $request->all();
+
+        $project->update($form_project);
+        return redirect()->route('admin.projects.index');
     }
 
     /**
