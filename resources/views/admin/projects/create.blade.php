@@ -19,7 +19,7 @@
             <div class="mb-3">
                 <label for="cover_image" class="form-label">immagine</label>
                 <input type="file" class="form-control" id="cover_umage" name="cover_image"
-                    value="{{ old('cover_image', $project->cover_image) }}" placeholder="immagine">
+                    value="{{ old('cover_image'), $project->cover_image }}" placeholder="immagine">
             </div>
             <div class="mb-3">
                 <label for="summary" class="form-label">Descrizione</label>
