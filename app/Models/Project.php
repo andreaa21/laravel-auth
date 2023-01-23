@@ -13,6 +13,11 @@ class Project extends Model
 
     protected $fillable = ['name', 'client_name', 'summary', 'cover_image', 'slug', 'cover_image', 'cover_image_original_name'];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public static function generateSlug($string)
     {
         $slug = Str::slug($string, '-');
