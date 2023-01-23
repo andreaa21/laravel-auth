@@ -22,8 +22,8 @@
                         @foreach ($projects as $project)
                             <tr>
                                 <th scope="row">{{ $project->id }}</th>
-                                <td>{{ $project->name }} <span
-                                        class="badge text-bg-info">{{ $project->category->name }}</span></td>
+                                <td width="15%">{{ $project->name }} <span
+                                        class="badge text-bg-info ms-3">{{ $project->category->name }}</span></td>
                                 <td>{{ $project->client_name }}</td>
                                 <td>{{ $project->summary }}</td>
                                 <td class="d-flex">
